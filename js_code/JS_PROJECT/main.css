@@ -1,0 +1,14 @@
+.ft { margin : 20px; }
+
+.ft_button { font-size: 20px; }
+
+.ft_text {                                  
+    display: none;                      /* по дефолту не показываем */
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid;
+}
+
+.ft_text_show_yes {                     /* после клика по кнопке применится этот стиль - показываем текст */
+    display: block;
+}

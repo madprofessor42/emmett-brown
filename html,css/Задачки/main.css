@@ -1,0 +1,15 @@
+.circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: darkred;
+}
+
+/* https://css-tricks.com/snippets/css/css-triangle/ */
+.triangle {
+    width: 0;
+    height: 0;
+    border-bottom: 70px solid darkred;
+    border-left: 70px solid transparent;
+    border-right: 70px solid transparent;
+}

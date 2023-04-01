@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="order_of_appearance">Some text</div>
+    <div class="order_of_property">Some text</div>
+    <div class="order_of_property_clam">Some text</div>
+    <p id="some_id" class="some_class">Some text</p>
+    <!-- CSS applied directly to the style attribute of the HTML element, gets a specificity score of 1,000 points -->
+    <div style="color: rebeccapurple"></div>
+    <div>
+        <!-- В данном случае у обоих дивов будет синий цвет, так как он объявлен в CSS ниже, тем самым является выше по приоритету -->
+        <!-- Что бы же для первого div был зеелный цвет, нужно сделать локатор в CSS более приоритетным (задать по id, добавить псевдокласс и тд) -->
+        <div class="green blue">Some text</div>
+        <div class="blue green">Some text</div>
+    </div>
+</body>
+</html>

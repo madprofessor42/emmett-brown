@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1 id="counter_name">COUNTER</h1>
+        <h2 id="counter_description">A simple counting web app</h2>
+    </header>
+    <main>
+        <!-- Если мы хотим, что бы кнопки были внутри блока с числом, то оборачиваем блок с число и блок с кнопками под 1 общий div -->
+        <div class="counter_block"> 
+            <div class="counter_value">0</div>  
+            <div class="counter_actions">
+                <button data-action="decrease"><span>DECREASE</span></button>
+                <button data-action="reset"><span>RESET</span></button>
+                <button data-action="increase"><span>INCREASE</span></button>
+            </div>
+        </div>
+        <!-- Эти кнопки идут отдельно, по этому они в отдельном div -->
+        <div class="post_actions">
+            <button data-action="save"><span>SAVE</span></button>
+            <button data-action="load"><span>LOAD</span></button>
+            <button data-action="clear"><span>CLEAR</span></button>
+        </div>
+        <!-- Если нужно задать общее свойство для элементов, то создаем 2 класса - item item_N-->
+        <div class="container">
+            <div class="item item_1">I am the first item</div>
+            <div class="item item_2">I am the second item</div>
+            <div class="item item_3">I am the third item</div>
+        </div>
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>
+
+
+
+<!-- HTML STRUCTURE -->
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <header></header>
+    <main></main>
+    <footer></footer>
+    <script></script>
+</body>
+</html> 
+-->
+
+
+<!-- 
+header, main, footer - основные блоки (шапка, главная часть, нижняя часть)
+
+div - "строительный тэг" - группирует тэги в блоки
+
+h1-h6 - тэги для заголовков
+
+p, span - тэги для контента
+
+ul>li, ol>li - тэги списков
+
+a - тэг для вывода ссылки
+img - тэг для вывода картинки
+-->
+
+
+
+
+<!-- EMMET COMMANDS -->
+
+<!-- ctrl + /                           to quick comment--> 
+<!-- !                                  to create base html structure -->
+<!-- html:5                             to create base html structure -->
+
+<!-- div>ul>li                          to create nested elements -->
+<!-- div+b+bp                           to create subling elements -->
+<!-- ul>li*3                            to create 3 li elements under ul element -->
+<!-- div>(header>ul>li*2>a)+footer>p    to group subtrees -->
+
+<!-- div#root                           to create div with id root -->
+<!-- div.page                           to create div with class page -->
+<!-- div.class1.class2.class3           to create div with multiple classes -->
+<!-- div[value='hello' colspan=3]       to create div with self assigned attr -->
+
+
+<!-- CSS стили подключаются в head>link -->
+<!-- JS который нужен сразу как страница прогрузилась нужно подклчюать в head, а тот который нужен не сразу, то в конце body -->

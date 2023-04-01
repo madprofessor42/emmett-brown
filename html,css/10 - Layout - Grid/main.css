@@ -1,0 +1,57 @@
+/*
+display: grid - применяется к родительскому блоку и делает всех детей (только первые элементы) - гридами
+
+grid-template-rows: величина_первой_строки величина_второй_строки ... (1fr - это величина контента)
+grid-auto-columns: величина_первого_столбца величина_второго_столбца ...
+
+grid-gap - промежутки между гридами
+
+grid-template-areas: - позволяет "визуально" задать какие гриды где будут например "header header"
+                                                                                   "sideBar content"
+                                                                                   "sideBar content"
+                                                                                   "footer footer"
+расположит соответствующие гриды в нужные места
+
+justify-content - выровнять вложенные элементы по оси X
+align-content - выровнять вложенные элементы по оси Y
+justify-items - выровнять относительно ячейки по оси X
+align-items - выровнять относительно ячейки по оси Y
+
+*/
+.container {
+    display: grid;
+
+    grid-template-rows: 50px 1fr;
+    grid-template-columns: 2fr 10fr;
+    grid-gap: 10px;
+
+    grid-template-areas:
+    "h h"
+    "n c";
+
+}
+
+/*
+grid-area: label - задает лэйбл, который будет использован для позиционирования в grid-template-areas
+justify-self - выровнять отдельный элемент по оси X
+align-self - выровнять отдельный элемент по оси Y
+
+*/
+.container .header {
+    background-color: greenyellow;
+    grid-area: h;
+}
+
+.container .sideBar {
+    background-color: lightblue;
+    grid-area: n;
+}
+
+.container .content {
+    background-color: beige;
+    grid-area: c;
+}
+
+
+
+/* Grid предназначен для разработки двумерых макетов (Располагаем элементы одновременно по вертикали и горизонтали) */

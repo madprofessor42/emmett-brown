@@ -1,0 +1,86 @@
+/* Some CSS properties inherit if you don't specify a value for them */
+
+/* 1. Since no color is specified here (.my-button class is applied to "a" tag) */
+.my-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    background: #eabdb3;
+    font: inherit;
+    text-align: center;
+  }
+  
+/* 2. The button will inherit this style */
+article a {
+    color: beige;
+}
+  
+.my-button:hover {
+    background: #e2a294;
+}
+  
+
+/* Свойства применяемые к родительским тэгам применяются ко всем дочерним тэгам */
+body {
+    margin: 1rem 2rem;
+}
+
+/* Для всех элементов внутри article будет жирность шрифта - 300, но есои этот элемент будет span, то для него идеи переопределение стилей */
+article {
+    font-weight: 300;
+}
+
+span {
+    font-weight: 700;
+}
+
+
+/* Если нужно задать для дочернего элемента то значение которое есть у родительского, то используем inherit */
+/* Если нужно сбросить до дефолта, то используем initial */
+/* unset - Если значение может быть унаследовано, то оно наследуется, если не может, то сбрасывается на дефолт */
+strong {
+    color: #eabdb3;
+}
+
+.inherit {
+    color: blue;
+}
+
+.inherit strong {
+    color: inherit;
+}
+
+
+/* 
+Not all CSS properties are inheritable, but there are a lot that are. For reference, here is the entire list of inheritable properties, taken from the W3 reference of all CSS properties:
+- azimuth
+- border-collapse
+- border-spacing
+- caption-side
+- color
+- cursor
+- direction
+- empty-cells
+- font-family
+- font-size
+- font-style
+- font-variant
+- font-weight
+- font
+- letter-spacing
+- line-height
+- list-style-image
+- list-style-position
+- list-style-type
+- list-style
+- orphans
+- quotes
+- text-align
+- text-indent
+- text-transform
+- visibility
+- white-space
+- widows
+- word-spacing
+*/
+

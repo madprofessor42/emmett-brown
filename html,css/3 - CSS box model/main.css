@@ -1,0 +1,112 @@
+p#extrinsic_sizing {
+    width: 50px; 
+    height: 50px; 
+    padding: 20px; 
+    border: 1px solid black;
+}
+
+/* 
+Используя width/height: min-content/max-content; говорит браузеру что бы он расширил блок ссылаясь на величину контента
+Так же можно просто удалить width и height свойства
+*/
+p#intrinsic_sizing_min {
+    width: min-content; 
+    height: min-content; 
+    padding: 20px; 
+    border: 1px solid black;
+}
+
+p#intrinsic_sizing_max {
+    width: max-content; 
+    height: max-content; 
+    padding: 20px; 
+    border: 1px solid black;
+}
+
+p#intrinsic_sizing_max {
+    width: fit-content; 
+    height: fit-content; 
+    padding: 20px; 
+    border: 1px solid black;
+}
+
+/* 
+Когда содержимое слишком велико для блока, в котором оно находится, мы называем это переполнением. 
+Тем, как элемент обрабатывает переполняющее содержимое, можно управлять, используя свойство overflow.
+*/
+
+p#overflow_hidden {
+    width: 50px; 
+    height: 50px; 
+    padding: 20px; 
+    border: 1px solid black;
+    overflow: hidden;
+}
+
+p#overflow_scroll {
+    width: 50px; 
+    height: 50px; 
+    padding: 20px; 
+    border: 1px solid black;
+    overflow: scroll;
+}
+
+/* Заполнится цветом только padding, так как margin находится вне элемента */
+p#padding_border_margin {
+    padding: 50px;
+    background-color: beige;
+    border: 1px solid black;
+    margin: 20px;
+}
+
+/* Для inline width и height не применяются */
+div.inline {
+    display: inline;
+    width: 50px;
+    height: 50px;
+    background-color: beige;
+}
+
+/* Для inline-block учитываются и width и height, но при этом эти 2 блока могут распологаться на 1 строке */
+/* Inline block - наружу он инлайн (margin не применится,…), а внутри он block (применяются padding) */
+div.inline_block {
+    display:inline-block;
+    width: 50px;
+    height: 50px;
+    background-color: beige;
+}
+
+/* Для block */
+div.block {
+    display:block;
+    width: max-content;
+    height: max-content;
+    background-color: beige;
+}
+
+/* 
+Фактическая ширина этого блока будет равна 260 пикселям. Поскольку CSS использует box-sizing: content-box по умолчанию, 
+применяемая ширина — это ширина контента плюс padding и border с обеих сторон. 
+Таким образом, 200 пикселей для содержимого + 40 пикселей заполнения + 20 пикселей границы в сумме дают видимую ширину 260 пикселей.
+*/
+div.content_box {
+    box-sizing: content-box;
+    width: 200px;
+    padding: 20px;
+    border: 10px solid black;
+    background-color: beige;
+}
+
+/* 
+Такая альтернативная блочная модель сообщает CSS применить значение width к блоку границ, а не к блоку контента. 
+Это означает, что наши параметры border и padding будут вписаны внутрь, и в результате, когда вы установите .my-box шириной в 200px, блок на самом деле будет отрисован шириной 200px.
+*/
+div.border_box {
+    box-sizing: border-box;
+    width: 200px;
+    padding: 20px;
+    border: 10px solid black;
+    background-color: beige;
+}
+
+

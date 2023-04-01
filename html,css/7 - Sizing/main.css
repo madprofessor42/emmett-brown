@@ -1,0 +1,135 @@
+/* 
+The web is a responsive medium, but sometimes you want to control its dimensions to improve the overall interface quality. 
+A good example of this is limiting line lengths to improve readability. How would you do that in a flexible medium like the web?
+*/
+
+/* The line height is a ratio of 24px, rather than a specific size. The line height is currently 1.5, which calculates as 36px */
+/* width, height - для обозначения ширины и длины */
+.wrapper {
+    width: 300px;
+    height: 1000px;
+    border: 1px solid black;
+}
+
+/* Если элемент вложен в другой, то можно указать в процентах - сколько должна быть величина относительно родителя */
+#relative_to_parent {
+    font-size: 24px;
+    line-height: 1.5;
+    width: 50%;
+    border: 1px solid red;
+}
+
+/* padding - для обозначения отсупов между контентом и рамкой. margin - для обозначения отступов между рамкой и внешним контентом */
+/* padding-top|left|right|bottom - где осуществить отступ, по дефолту будет применимо ко всем сторонам */
+/* margin-top|left|right|bottom - где осуществить отступ, по дефолту будет применимо ко всем сторонам */
+/* Если задать 1 значение, то применяется ко всем сторонам. Если 2 значения, то первое - это верх низ, второе - лево право. Если 3 значения, то первое - верх, второе - лево право, третье - низ */
+#padding_margins {
+    background-color: bisque;
+    padding: 5px;
+    margin: 15px;
+    border: 1px solid indianred;
+}
+
+/* box-sizing: content-box - в данном случае все падинги и border будут расширять весь элемент */
+#content_box {
+    width: 100%;
+    box-sizing: content-box;
+    border: 10px solid red;
+    padding: 20px;
+}
+/* box-sizing: border-box - в данном случае все падинги и border будут забирать величину самого элемента, а не расширять его */
+#border_box {
+    width: 100%;
+    box-sizing: border-box;
+    border: 10px solid red;
+    padding: 20px; 
+}
+
+/* Если есть 2 эллемента, чьи внешние отступы наслаиваются друг на друга, будет выбираться 1 наибольший отступ */
+/* В данном случае между элементами отступ будет не 50 пикселей, а 30 */
+.margin_collapse > div:nth-child(1) {
+    margin-bottom: 30px;
+}
+.margin_collapse > div:nth-child(2) {
+    margin-top: 20px;
+}
+
+
+/* min/max height width - определяет минимальную и максимальные величины блока, если контент будет выходить за его рамки, то блок будет расширяться до указанных размеров */
+/* Если же контента больше чем границы блока, то он становится overflow */
+.min_max {
+    background-color: antiquewhite;
+    border: 1px solid red;
+    min-height: 50px;
+    max-height: 100px;
+    min-width: 20px;
+    max-width: 100px;
+}
+
+
+/* border - задает границы блока */
+.border {
+    border: 2px solid hotpink;
+    height: 20px;
+}
+
+/* outline - задает обводку вокруг границ */
+.outline {
+    outline: 2px solid red;
+    border: 2px solid olive;
+    height: 20px;
+}
+
+
+
+/* transform - трансформировать контент  */
+/* rotate(90deg)|rotate(0.25turn) - повернуть на 90 градусов */
+/* scale(timesOnXAxes, timesOnYAxes) */
+/* scew(timesOnXAxes, timesOnYAxes), scewX(timesOnXAxes), scewY(timesOnYAxes) - вытянуть блок */
+#transform_p {
+    background-color: blueviolet;
+    width: 50%;
+    height: 50px;
+    transition: 1s;
+}
+
+#transform_p:hover {
+    transform: rotate(360deg) scale(0.5, 1.5);
+}
+
+
+.view_port {
+    width: 90vw;
+    height: 90vh;
+    padding: 20px;
+    background-color: beige;
+    border: 1px solid red;
+}
+
+.view_port > div {
+    width: 50%;
+    height: 10%;
+    padding: 20px;
+    background-color: beige;
+    border: 1px solid green;
+}
+
+
+/* ЕДИНИЦЫ ИЗМЕРЕНИЯ */
+
+/* 
+- px – это самая базовая, абсолютная и окончательная единица измерения.
+- 1em – текущий размер шрифта, если он не указан, то дефолт 24px. Значит 2em будет равно 48px
+- Проценты %, как и em – относительные единицы. Как правило, процент будет от значения свойства родителя с тем же названием, но не всегда:
+    margin-left - При установке свойства margin-left в %, процент берётся от ширины родительского блока, а вовсе не от его margin-left.
+    line-height - При установке свойства line-height в %, процент берётся от текущего размера шрифта, а вовсе не от line-height родителя
+    width/height - Для width/height обычно процент от ширины/высоты родителя, но при position:fixed, процент берётся от ширины/высоты окна (а не родителя и не документа).
+- rem - смесь px и em/%, она увеличивает размер относительно своего дефолтного, и при этом не берет в расчет размер родителя 
+
+Относительно экрана: vw, vh, vmin, vmax - Эти значения были созданы, в первую очередь, для поддержки мобильных устройств.
+- vw - 1% ширины окна - 100vw будет равняться 100% ширине окна 
+- vh - 1% высоты окна - 100vh будет равняться 100% высоты окна 
+*/
+
+
+

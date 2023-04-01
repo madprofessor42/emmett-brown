@@ -1,0 +1,92 @@
+/* STYLING TEXT */
+
+
+/* Numeric colors */
+
+/* Hex colors */
+.hex {
+    color: #b71540;
+}
+
+/* RGB (Red, Green, Blue) */
+.rgb {
+    color: rgb(116, 212, 7);
+}
+
+/* HSL (Hue, Saturation, Lightness) */
+.hsl {
+    color: hsla(286, 100%, 73%, 0.486);
+}
+
+
+/* Color Keywords */
+
+.keyword {
+    color: aquamarine;
+}
+
+/* transparent - сделать невидимым */
+.keyword.transparent {
+    color: transparent;
+}
+
+/* text-shadow: offset-x | offset-y | blur-radius | color  */
+.text_shadow {
+    text-shadow: 1px 2px 1px blueviolet
+}
+
+/* text-decoration-color: color. Должна быть использована с text-decoration-line (Если это не тэг "a") */
+.text_decoration_color {
+    text-decoration-line: underline;
+    text-decoration-color: red;
+}
+
+/* opacity - прозрачность */
+.opacity {
+    color: #b71540;
+    opacity: 50%;
+}
+
+
+/* STYLING BACKGROUND */
+
+/* background|background-color - изменить цвет у фона */
+.background {
+    background-color: antiquewhite;
+    padding: 1rem;
+}
+
+/* background: linear-gradient(to direction, leftColor, rightColor) */
+.linear_gradient {
+    padding: 1rem;
+    background: linear-gradient(to right top, blueviolet, Green);
+    width: 100px;
+}
+
+
+
+/* STYLING OUTLINES */
+
+/* border-color - применить цвет к рамке */
+.border_color {
+    border-color: #b71540;
+    border-width: 1px;
+    border-style: solid;
+}
+
+/* outline-color - применить цвет прямо за рамкой (по сути рамка вокруг рамки)*/
+.outline_color {
+    outline-color: #b71540;
+    outline-width: 5px;
+    outline-style: solid;
+    border: 5px solid aqua;
+}
+
+/* box-shadow offset-x | offset-y | blur-radius | spread-radius | color - добавляет тень вокруг элемента*/
+.box_shadow {
+    padding: 1rem;
+    border: 1px solid black;
+    box-shadow: 10px 5px 5px 5px red;
+}
+
+

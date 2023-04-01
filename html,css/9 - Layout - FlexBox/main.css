@@ -1,0 +1,193 @@
+/* Inline elements behave like words in a sentence. They sit next to each other in the inline direction. 
+Elements such as <span> and <strong>, which are typically used to style pieces of text within containing elements like a <p> (paragraph), are inline by default.
+They also preserve surrounding whitespace. */
+.inline > div {
+    display: inline;
+    border: 1px solid red;
+}
+
+.inline_block {
+    display: inline-block;
+    border: 1px solid red;
+}
+
+/* Block elements don't sit alongside each other. They create a new line for themselves. 
+Unless changed by other CSS code, a block element will expand to the size of the inline dimension, therefore spanning the full width in a horizontal writing mode. 
+The margin on all sides of a block element will be respected. */
+.block {
+    display: block;
+    border: 1px solid red;
+}  
+
+
+/* The display property also determines how an element's children should behave. 
+For example, setting the display property to display: flex makes the box a block-level box, and also converts its children (1 level of nesting) to flex items. 
+This enables the flex properties that control alignment, ordering and flow. */
+
+/* Flexbox is a layout mechanism for one-dimensional layouts. Layout across a single axis, either horizontally or vertically. 
+By default, flexbox will align the element's children next to each other, in the inline direction, and stretch them in the block direction, so they're all the same height */
+.flex {
+    display: flex;
+    border: 1px solid red;
+}
+
+.item {
+    border: 1px solid rgb(0, 255, 76); 
+    padding: 1rem;
+    background-color: beige;
+}
+
+/* Что бы поменять направление блоков используется flex-direction */
+.flex_direction {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid red;
+}
+
+
+/* Что бы выровнять дочерние блоки относительно родительского контейнера по оси X (если flex-direction: row, а если flex-direction: column, то ось Y), нужно к родительскому блоку применить свойство justify-content */
+/* Что бы выровнять дочерние блоки относительно родительского контейнера по оси Y (если flex-direction: row, а если flex-direction: column, то ось X), нужно к родительскому блоку применить свойство align-items */
+.flex_justify_content {
+    display: flex;
+    height: 200px;
+    width: max-content;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid red;
+}
+
+
+/* Что бы выровнять отдельный элемент, указываем align-self для этого элемента */
+.flex_justify_content > .item_1 {
+    align-self: flex-start;
+} 
+
+
+/* Что бы элементы переносиились на новую строку, если заканчивается место, используется flex-wrap, нужно что бы ширина не была явно указана */
+.wrap_elements {
+    display: flex;
+    border: 1px solid red;
+    flex-wrap: wrap;
+}
+
+
+/* flex-basis - задает размер относительно главной оси - указывается для каждого дочернего элемента или для всех вместе*/
+.flex_basis {
+    display: flex;
+
+}
+
+.item_for_flex_basis {
+    padding: 40px;
+    border: 1px solid red;
+    background-color: beige;
+    flex-basis: 13%;
+}
+
+.item_for_flex_basis.item_5 {
+    flex-basis: 50%;
+}
+
+
+/* flex-shrink применяется к элементу и говорит ему насколько быстрее му стоит уменьшаться, при изменении размера страницы, относительно других flex элементов  */
+.flex_shrink {
+    display: flex;
+}
+
+.item_for_flex_shrink {
+    padding: 40px;
+    border: 1px solid red;
+    width: fit-content;
+    height: fit-content;
+    background-color: beige;
+}
+
+.item_for_flex_shrink.item_9 {
+    flex-shrink: 4;
+}
+
+
+/* flex-grow - применяется к элементу и говорит какой у него должен быть размер */
+/* Если проставить для всех элементов flex-grow:1, а для конкретного flex-grow:4, то конкретный контейнер будет занимать 2/4 части всего контейнера, тогда как 2 других элемента будут занимать по 1/4 части */
+.flex_grow {
+    display: flex;
+}
+
+.item_for_flex_grow {
+    padding: 40px;
+    border: 1px solid red;
+    width: fit-content;
+    height: fit-content;
+    background-color: beige;
+    flex-grow: 1;
+
+}
+
+.item_for_flex_grow.item_11 {
+    flex-grow: 4;
+}
+
+/* flex: 1 1 auto - значит flex-grow: 1; flex-shrink: 1 ; flex-basis: auto; */
+.flex_all {
+    display: flex;
+}
+.item_for_flex_all {
+    padding: 40px;
+    border: 1px solid red;
+    width: fit-content;
+    height: fit-content;
+    background-color: beige;
+}
+.item_for_flex_all.item_13 {
+    flex: 1 1 auto;             /* flex: 1 1 auto; - расширить максимально блок и прижать послежующие флекс элементы к краю*/
+}
+.item_for_flex_all.item_15 {
+    flex: 0 0 10px;             /* flex: 0 0 Npx - задать фиксированную ширину N пикселей без возможности расширения и сужения */
+}
+
+
+
+
+/*
+Grid используется для верхнеуровневой верстки - расположить хэдер, сайдбар, контент, футер и тд
+FlexBox используется для верстки внутри блоков - расплоложить элементы навигации внутри хэдера, поля текста и кнопки рядом с ним и тд
+
+PS: Если нужно расположить какой-то элемент под другим (например кнопки под инпутом), но при этом инпут нужно сделать flex (например что бы попимо инпута была еще рядом картинка)
+то что бы не затронуть кнопки, нужно обернуть инпут и картинку в отдельный div блок и сделать его flex
+
+      <div class="posts">
+        <div class="user_input" style="display: flex;">
+          <div class="image"><span>Write you comment here ---></span></div>
+          <div class="input_field"><input type="text"></div>
+        </div>
+        <div class="action_buttons" style="display: flex;">
+            <div class="submit"><button type="submit">Submit</button></div>
+            <div class="cancel"><button type="reset">Cancel</button></div>
+        </div>
+      </div>
+
+Если нужно подвинуть какой то элемент внутри flex контейнера, то используем padding и margin
+*/
+.posts {
+    border: 1px solid red;
+}
+
+
+.user_input {
+    padding: 10px;
+    display: flex;
+}
+
+.input_field {
+    margin-left: 10px;
+}
+
+
+.action_buttons {
+    padding: 10px;
+    display: flex;
+}
+
+
+
+

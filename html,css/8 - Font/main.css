@@ -1,0 +1,20 @@
+/* font-family - отвечает какого типа будет шрифт, будет выбираться самый первый, если его нет, то будет идти по списку */
+.font_family {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* font-size - задает размер шрифта */
+.font_size {
+    font-size: 36px;
+}
+
+/* font-style - задает стиль шрифта */
+.font_style {
+    font-style: italic;
+}
+
+/* font-weight - задает жирность шрифта */
+.font_weight {
+    font-weight: 700;
+}
+

@@ -1,0 +1,33 @@
+.wrapper {
+    width: 800px;
+    height: 800px;
+    background-color: aquamarine;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* float: left|right - применяется к дочерним элементам, что бы расположить их внутри родительского блока */
+.some_information {
+    height: inherit;
+    width: 600px;
+    background-color: antiquewhite;
+    float: left;
+}
+
+.dropdown {
+    height: inherit;
+    width: 200px;
+    background-color: orange;
+    float: right;
+}
+
+/* Так же если float применен к нескольким элементам, то они все будут идти друг за другом в линию */
+.box {
+    height: 50px;
+    width: 50px;
+    background-color: brown;
+    margin: 5px;
+    float: left;
+}
+
+/* Используем когда текст должен идти вокруг элемента */

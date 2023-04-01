@@ -1,0 +1,31 @@
+.postFeed {
+    display: flex;
+    flex-direction: column;
+    background-color: brown;
+    margin: 5px;
+    width: 500px;
+}
+
+.item {
+    display: flex;
+    padding: 10px;
+
+}
+
+.image {
+    height: 50px;
+    width: 50px;
+    border-radius: 30px;
+}
+
+.text {
+    color: white;
+}
+
+.actions {
+
+}
+
+.actions span {
+    margin-left: 5px;
+}

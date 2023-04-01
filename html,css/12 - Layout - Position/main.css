@@ -1,0 +1,37 @@
+/* position: relative - определяем элемент от которого будем отталкиваться */
+/* position: absolute - определяем элемент который будет уже располагаться относительно заданного блока relative */
+/* right|left|top|buttom - задаем для absolute блока где он будет располагаться */
+/* absolute элемент позиционируется относительно первого родительского элемента, который имеет position relative */
+/* Применяется в основном для тултипов или тогда когда элементы должны заходить друг на друга */
+.relative {
+    border: 1px solid red;
+    background-color: aqua;
+    height: 200px;
+    width: 200px;
+    position: relative;
+}
+.absolute {
+    border: 1px solid olive;
+    background-color: hotpink;
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    right: 50%;
+    z-index: 2;
+
+}
+
+/* z-index - уровень наложения, если есть 2 и более дочерних элементов с позицией absolute, то они могут перекрывать друг друга. Что бы этого не было задаем этим блокам z-index */
+/* z-index: N, чем больше значение N, тем больше других блоков смогут его перекрыть */
+.absoule_2 {
+    border: 1px solid olive;
+    background-color: blue;
+    height: 75px;
+    width: 75px;
+    position: absolute;
+    right: 50%;
+    z-index: 1;
+}
+
+
+

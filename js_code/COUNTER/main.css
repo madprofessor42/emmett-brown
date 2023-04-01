@@ -1,0 +1,107 @@
+/* :root {--variable: value} - так указываются переменные CSS, которые можно переиспользовать*/
+:root { 
+    --dark: #374151;
+    --darker: #1F2937;
+    --darkest: #111827;
+    --gray: #687280;
+    --light: #EEE;
+    --pink: #EC4899;
+    --purple: #8B5Cf6;
+}
+
+/* * {} - так указывается что применить стили ко всем элементам */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Fira sans', sans-serif;
+}
+
+body {
+    background-color: var(--light);
+    padding: 2rem 1rem;
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: var(--darkest);
+    font-size: 4rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    color: var(--dark);
+    font-size: 1rem;
+    font-style: italic;
+    text-transform: lowercase;
+    margin-bottom: 1rem;
+}
+
+.counter_block {
+    background-color: var(--darkest);
+    color: var(--light);
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.counter_value {
+    font-size: 8rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.counter_actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 -0.5rem;
+}
+
+.counter_actions button {
+    margin: 0 0.5rem;
+}
+
+button {
+    appearance: none;
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--pink);
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.4 ease-out;
+}
+
+button:active{
+    transform: scale(1.1);
+}
+
+button span {
+    display: block;
+    transition: 0.4 ease-out;
+}
+
+button[data-action="reset"] {
+    color: var(--gray);
+    opacity: 0.5;
+}
+
+button[data-action="reset"]:hover {
+    opacity: 1;
+}
+
+.post_actions {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.post_actions button {
+    color: var(--darkest);
+}
+
+ 

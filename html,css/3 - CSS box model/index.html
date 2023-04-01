@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <!-- Данные текст выйдет за пределы блока. Важно помнить, что все в HTML есть блоки. 
+            Будь то блок, в котором используется border-radius для имитации круга, или просто какой-нибудь текст, важно помнить, что все это — блоки.-->
+        <p id="extrinsic_sizing">I am a paragraph of text that has a few words in it.</p>
+        <br>
+        <br>
+        <!-- Поведение блоков отличается в зависимости от значения их свойства display, установленных размеров и содержимого, которое в них находится. 
+            Этим содержимым могут быть другие блоки, созданные дочерними элементами, или простой текст.  -->
+        <p id="intrinsic_sizing_min">I am a paragraph of text that has a few words in it.</p>
+        <p id="intrinsic_sizing_max">I am a paragraph of text that has a few words in it.</p>
+        <p id="intrinsic_sizing_fit">I am a paragraph of text that has a few words in it.</p>
+        <p id="overflow_hidden">I am a paragraph of text that has a few words in it.</p>
+        <p id="overflow_scroll">I am a paragraph of text that has a few words in it.</p>
+        <!-- Блоки состоят из отдельных областей блочной модели, каждая из которых выполняет определенную работу. 
+                Margin - внешние отступы между элементами
+                Border - окантовка блока
+                Padding - отступы между содержимым и окантовкой
+                Content - содержимое
+        -->
+
+        <p id="padding_border_margin">I am a paragraph of text that has a few words in it.</p>
+        <!-- 
+            Каждый браузер применяет таблицу стилей пользовательского агента к HTML-документам. 
+            Используемый CSS варьируется в зависимости от браузера, но значения по умолчанию подобраны продуманно, чтобы облегчить чтение контента. 
+            Если CSS не определен, то, как элементы должны выглядеть и вести себя, определяется браузером. 
+            Это прописано в стилях пользовательского агента, где также установлено значение display по умолчанию для блока. 
+            По дефолту <div> - block, для <li> значение display по умолчанию — list-item, а для <span> значение display по умолчанию равно inline. 
+        -->
+        <div class="inline">I am a paragraph of text that has a few words in it.</div>
+        <div class="inline">I am a paragraph of text that has a few words in it.</div>
+        <br>
+        <br>
+        <div class="inline_block">I am a paragraph of text that has a few words in it.</div>
+        <div class="inline_block">I am a paragraph of text that has a few words in it.</div>
+        <br>
+        <br>
+        <div class="block">I am a paragraph of text that has a few words in it.</div>
+        <div class="block">I am a paragraph of text that has a few words in it.</div>
+        <br>
+        <div class="content_box">I am a paragraph of text that has a few words in it.</div>
+        <div class="border_box">I am a paragraph of text that has a few words in it.</div>
+
+
+    </header>
+</body>
+</html>

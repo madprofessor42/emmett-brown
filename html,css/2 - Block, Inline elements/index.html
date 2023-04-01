@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Document</title>
+</head>
+<body>
+    <header></header>
+    <main>
+        <h1>Блочные элементы</h1>
+        <div>
+            Исторически HTML-элементы было принято делить на блочные и строчные. 
+            Блочные элементы занимают всю ширину своего родителя (контейнера), формально создавая «блок» (отсюда и название). 
+            Браузеры обычно отображают блочные элементы с переводом строки до и после элемента. 
+            Блочные элементы можно представить в виде стопки коробок. 
+            Следующий пример демонстрирует, как это выглядит:
+        </div>
+        <br>
+        <div>
+            Как правило, блочные элементы могут содержать строчные элементы и другие блочные элементы. 
+            Неотъемлемой частью этого структурного различия является идея, что блочные элементы создают «более крупную» структуру, чем встроенные элементы.
+        </div>
+        <br>
+        <div>
+            По умолчанию блочные элементы начинаются с новой строки, а строчные могут начинаться в любом месте строки.
+        </div>
+        <br>
+        <header style="background-color: antiquewhite;">header - блочный элемент</header>
+        <main style="background-color: antiquewhite">main - блочный элемент</main>
+        <footer style="background-color: antiquewhite">footer - блочный элемент</footer>
+        <div style="background-color: antiquewhite;">div - блочный элемент</div>
+        <p style="background-color: antiquewhite;">p - Этот абзац — блочный элемент</p>
+        <h1 style="background-color: antiquewhite; font-size: medium;">h1-h6 - блочные элементы</h1>
+        <ul style="background-color: aqua;">ul - это блочный элемент
+            <li style="background-color: antiquewhite;">li (List item) - блочный элемент</li>
+        </ul>
+        <ol style="background-color: aqua;">ol - это блочный элемент
+            <li style="background-color: antiquewhite;">li (List item) - блочный элемент</li>
+        </ol>
+        <nav style="background-color: antiquewhite;">nav - блочный элемент</nav>
+        <br>
+        <h1>Строчные элементы</h1>
+        <div>
+            Строчные элементы это те, которые занимают только то пространство, которое ограничено тегами, 
+            определяющими строчный элемент (необходимое для отображения их содержимого) и не нарушая потока содержимого (не требующее новой строки после каждого элемента)
+            Так же в строчные элементы нельзя вкладывать блочные элементы
+        </div>
+        <br>
+        <div>
+            По умолчанию встроенные элементы не заставляют новую строку начинаться в потоке документа. 
+            С другой стороны, элементы блока обычно вызывают разрыв строки (хотя, как обычно, это можно изменить с помощью CSS).
+        </div>
+        <br>
+        <span style="background-color: thistle;">span - строчный элемент</span>
+        <b style="background-color: thistle;">b - строчный элемент</b>
+        <i style="background-color: thistle;">i - строчный элемент</i>
+        <small style="background-color: thistle;">small - строчный элемент</small>
+        <strong style="background-color: thistle;">strong - строчный элемент</strong>
+        <a style="background-color: thistle;">a - строчный элемент</a>
+        <img>img - строчный элемент</img>
+        <button style="background-color: thistle;">button - строчный элемент</button>
+        <input type="checkbox" id="some_id" style="background-color: thistle;">input - строчный элемент
+        <label for="some_id" style="background-color: thistle;">label - строчный элемент</label>
+        <textarea name="some_name" style="background-color: thistle;">textarea - строчный элемент</textarea>
+    </main>
+</body>
+</html>
