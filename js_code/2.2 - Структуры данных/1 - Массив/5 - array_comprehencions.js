@@ -10,4 +10,3 @@ let key = '-';
 let transformedString = [...searchedString].filter(e => !key.includes(e)).map(e => parseInt(e)+2).join('')
 console.log(transformedString)                  // 34567
 
-

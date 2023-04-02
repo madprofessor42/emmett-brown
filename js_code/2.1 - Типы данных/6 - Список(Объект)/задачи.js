@@ -2,7 +2,7 @@ const some_string = 'What is my favorite band?'
 
 // Написать функцию которая подсчитывает кол-во букв
 let numberOfLetters = (string) => {
-    let objectOfLetters = new Object()
+    let objectOfLetters = {};
     for (let char of string){
         if (char in objectOfLetters){           // если буква уже добавлена, то прибавить 1
             objectOfLetters[char] += 1
@@ -56,7 +56,7 @@ const findHappyNumber = num => {
     })
 
     Object.entries(resultObject).forEach(([key, value]) => {
-        if (key == value) resultArray.push(key);                // Используем ==, так как ключ это строка, а значение число и нужно привести к одному типу
+        if (key == value) resultArray.push(key);                // Используем ==, так как ключ это строка, а значение это число и их нужно привести к одному типу
     })
     return resultArray;
 }

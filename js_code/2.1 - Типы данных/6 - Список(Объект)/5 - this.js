@@ -30,6 +30,11 @@ console.log(users.filter(user => army.canJoin(user)))       // [ { age: 21 }, { 
 // у стрелочных функций нет this, по этому следующая запись выведет undefined
 user.sayAge = () => console.log(this.age)
 user.sayAge()               // undefined
+// Если задать через function expression, то this работает
+user.sayMultipliedAge = function() {
+    console.log(this.age * 2)
+}
+user.sayMultipliedAge();    // 60
 
 
 // this не является фиксированным. Оно может использоваться в любой функции. this вычисляется во время выполнения кода и зависит от контекста

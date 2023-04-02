@@ -76,6 +76,11 @@ console.log(array_for_find.find(el => el % 2 === 0))   // 2
 let array_for_findIndex = ['car', 'wash', 'car', 'qwerty']
 console.log(array_for_findIndex.findIndex(el => el === 'wash'))     // 1
 
+// array.some(callbackFn) - если хоть 1 элемент в массиве удовлетворил условию переданному в callbackFn, то метод возвращает true, иначе false
+let array_for_some = [1, 4, 6, 9];
+console.log('array_for_some - ' + array_for_some.some(el => el > 10));  // false
+console.log('array_for_some - ' + array_for_some.some(el => el < 10));  // true
+
 
 /*ОЧЕРЕДЬ - push(), shift()*/ // Добавляем элемент в конец и забираем с начала
 /*СТЕК - push(), pop()*/ // Добавляем элемент в конец и забираем с конца
@@ -148,6 +153,15 @@ let array_for_forEach = ['a', 'b', 'c'];
 array_for_forEach.forEach((item, index, array) => console.log(`item is ${item} index is ${index} array is ${array}`));  // item is a index is 0 array is a,b,c
                                                                                                                         // item is b index is 1 array is a,b,c
                                                                                                                         // item is c index is 2 array is a,b,c
+// Если нужно поменять значение элемента массива, то по попаданию в условие меняем элемент этого массива на нужный
+let array_for_replace = ['abc', 'qwe', '123'];
+array_for_replace.forEach((elem, index) => {
+    if (elem.slice(-1) === 'c') {
+        array_for_replace.splice(index, 1, elem.slice(0, -1))
+    }
+})
+
+
 // Всегда возвращает undefined. Что бы что то вернулось, стоит использовать array.map()
 const capitalize = input => input.forEach(el => el[0].toUpperCase())
 console.log(capitalize(['hello', 'friend']))                                    // undefined

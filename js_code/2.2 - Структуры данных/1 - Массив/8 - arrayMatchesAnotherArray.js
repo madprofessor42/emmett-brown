@@ -10,11 +10,11 @@ const intersection_2 = (a, b) => {
     const obj = {};
     const arr = [];
     a.forEach((el) => {
-    obj[el] = 1;
+        obj[el] = 1;
     })
 
     b.forEach((el) => {
-    if (obj.hasOwnProperty(el)) arr.push(el)
+        if (obj.hasOwnProperty(el)) arr.push(el)
     })
 
     return arr                                     

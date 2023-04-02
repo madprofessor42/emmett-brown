@@ -30,3 +30,23 @@ for (let i = 0; i < 1000000; i++){
 }
 console.timeEnd('Measure from speed')               // Measure from speed: 397.36ms
 
+
+// String() - преобразует значение в строку
+let value = 123;
+value = String(value);
+
+
+// Number() - преобразует значение в число
+alert( Number("   123   ") ); // 123
+alert( Number("123z") );      // NaN (ошибка чтения числа на месте символа "z")
+alert( Number(true) );        // 1
+alert( Number(false) );       // 0
+
+
+// Boolean() - преобразует в true или false
+alert( Boolean(1) ); // true
+alert( Boolean(0) ); // false
+alert( Boolean("Привет!") ); // true
+alert( Boolean("") ); // false
+
+

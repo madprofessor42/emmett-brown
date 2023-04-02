@@ -9,10 +9,10 @@ const infiniteArgs_2 = (...args) => {
         console.log(argument)
     }
 }
-infiniteArgs_2(1,2,3,4)     // 1
-                            // 2
-                            // 3
-                            // 4
+infiniteArgs_2(1,2,3,4)         // 1
+                                     // 2
+                                     // 3
+                                     // 4
 
 
 

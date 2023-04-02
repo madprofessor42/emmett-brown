@@ -30,16 +30,26 @@ let secondUser = Object.assign({}, user)
 console.log(secondUser)
 
 
-// Если нужно скопировать вложенный объект, то используем библиотеку lodash и встроенный метод cloneDeep(obj)
-const lodash = require('lodash')
+/**
+ * Копирование вложенных объектов
+ */
 let nestedObject = {
     name: "John",
     sizes: {
-      height: 182,
-      width: 50
+        height: 182,
+        width: 50
     }
 };
+// structuredClone()
+const newObj = structuredClone(nestedObject);
+newObj.name = 'Mike';
+console.log(nestedObject.name);             // John
+console.log(newObj.name);                   // Mike
 
+
+
+// Второй вариант использовать библиотеку lodash и встроенный метод cloneDeep(obj)
+const lodash = require('lodash')
 let deep = lodash.cloneDeep(nestedObject)
 nestedObject.sizes.height = 150;
 

@@ -46,4 +46,3 @@ function calculateDirection(input=''){
 
 console.log(calculateDirection('RRLA'))
 
-
