@@ -27,7 +27,7 @@ const sortOdd = input => {
     let indexArray = [];
     let oddArray = [];
     input.forEach((item, index) =>{
-        if (item % 2 != 0) {
+        if (item % 2 !== 0) {
             indexArray.push(index)
             oddArray.push(item);
         }

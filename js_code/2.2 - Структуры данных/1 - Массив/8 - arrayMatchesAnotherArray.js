@@ -39,7 +39,9 @@ const intersection_5 = (a, b) => {
     return a.every(el => b.includes(el))
 }
 
-
+/* array.includes(value) - проверить что значение есть в массиве */
+const sub = 'dsqq'
+console.log([';', '123', 'dsq'].includes(sub))      // false
 
 
 

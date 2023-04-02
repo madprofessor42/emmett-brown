@@ -53,7 +53,7 @@ console.log(Object.entries(items));                             // [
                                                                 //   [ 'third', 'test' ]
                                                                 // ]
 console.log('----------------------------------------');
-/*To loop over the array returned by Object.entries(), you can either use the for...of loop or the forEach() method*/                                                                 
+/*To loop over the array returned by Object.entries(), you can either use the for...of loop or the forEach() method*/
 for (const [key, value] of Object.entries(items)) {
     console.log(`Key is ${key} values is ${value}`);
 }
@@ -61,6 +61,17 @@ console.log('----------------------------------------');
 Object.entries(items).forEach(([key, value]) => {
     console.log(`${key}: ${value}`)
 });
+console.log('----------------------------------------');
+// Передаем в колбэке ключ и значение в массиве [], иначе на выходе будет массив, так как Object.entries создает вложенные массивы
+Object.entries(items).forEach(key => console.log(key))     // [ 'first', 2023-04-02T12:12:21.067Z ]
+                                                           // [ 'second', 2 ]
+                                                           // [ 'third', 'test' ]
+console.log('----------------------------------------');
+Object.entries(items).forEach(([key]) => console.log(key)) // first
+                                                                  // second
+                                                                  // third
+
+
 
 
 
