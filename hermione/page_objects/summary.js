@@ -2,7 +2,6 @@
  * Здесь собраны локаторы + действия на странице Summary (главный экран)
  */
 const commands = require('../commands')
-const extra_config = require('../../env')
 
 module.exports = {
     /**
@@ -16,7 +15,7 @@ module.exports = {
         let stand_url;
         switch (env) {
             case 'testing':
-                stand_url = extra_config.environment.testing;
+                stand_url = 'https://taxi.tap-tst.yandex.ru';
                 break;
             case 'prod':
                 stand_url = '';
@@ -31,11 +30,11 @@ module.exports = {
         })
 
         await bro.url(
-            `${stand_url}/?${options}`
+            `${stand_url}/?${options}hide_fs_promotions=true&hide_promoblocks=true`
         );
+
+
     },
-
-
 
 
 
@@ -49,11 +48,17 @@ module.exports = {
         tariffElements: {
             tariffButton: '//button[@data-testid="TariffButton"]',
             tariffButtonActive: '//button[@data-testid="TariffButton_active"]',
+            tariffButtonImg: '//button[@data-testid="TariffButton"]//img',
 
 
-            waitUntilTariffsAreClickable: async function(bro) {
-                const tariffs = await bro.$$(this.tariffButton);
-                await bro.waitUntil(() => tariffs.every(elem => elem.isClickable()), {timeout: 10000, timeoutMsg: 'Not every tariff element is clickable'});
+            waitUntilTariffsAreDisplayed: async function(bro) {
+                const tariffs = await bro.$(this.tariffButtonImg);
+                await bro.waitUntil(async () => await tariffs.isDisplayed(), {timeout: 5000, timeoutMsg:'Not all tariffs are displayed'})
+
+                // TODO: сделать проверку всех элементов, пока способ ниже не рабочий
+//                tariffs.forEach((tariff) => {
+//                    bro.waitUntil(async () => await tariff.isDisplayed(), {timeout: 5000, timeoutMsg: 'Not all tariffs are displayed'})
+//                })
                 },
             swipeTariffsLeft: async function(bro, distance) {
                 const elem = await bro.$(this.tariffButton).parentElement();
@@ -62,6 +67,9 @@ module.exports = {
             swipeTariffsRight: async function(bro, distance) {
                 const elem = await bro.$(this.tariffButton).parentElement();
                 await commands.swipes.swipeRight(bro, elem, distance);
+                },
+            swipeTariffModalUp: async function(bro, distance) {
+
                 },
             selectTariffByName: async function(bro, tariffName) {
                 const tariff = await bro.$(this.tariffButton).$(`//span[text()='${tariffName}']`);
@@ -83,12 +91,15 @@ module.exports = {
 
             waitUntilTariffInfoIsDisplayed: async function(bro) {
                 const modal = await bro.$(this.containerShown);
-                await modal.waitForDisplayed();
+                await bro.waitUntil(async () => await modal.isDisplayed(), {timeout: 5000, timeoutMsg: 'Modal is not displayed'})
                 },
             selectTariffOptionByName: async function(bro, optionName) {
                 const option = await bro.$(this.containerShown).$(`//input[@title='${optionName}']//parent::label`)
                 await option.click();
-                }
+                },
+            closeTariffModalBySwipe: async function(bro) {
+
+            }
         }
         },
 
@@ -105,7 +116,27 @@ module.exports = {
         addressTo: {
 
         }
-    }
+    },
 
+    /**
+     * Селекторы сайдбара
+     */
+    sideBar: {
+        sideBarHamburger: '//*[@id="root"]/span',
+        sideBarClose: '//*[@class="SideBlock-Control"]',
+
+        waitUntilHamburgerIsDisplayed: async function(bro) {
+            const hamburger = await bro.$(this.sideBarHamburger);
+            await bro.waitUntil(async () => await hamburger.isDisplayed(), {timeout: 5000, timeoutMsg: 'Hamburger menu is not displayed'})
+            },
+        clickOnHamburger: async function(bro) {
+            const hamburger = await bro.$(this.sideBarHamburger);
+            await hamburger.click();
+            },
+        closeSideBar: async function(bro) {
+            const close_menu = await bro.$(this.sideBarClose);
+            await close_menu.click();
+        }
+    }
 }
 

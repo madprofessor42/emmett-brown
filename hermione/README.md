@@ -1,25 +1,35 @@
-1. Инициализируем проект `npm init -y`
-2. Устанавливаем гермиону `npm install hermione` - 5.6.2 версии
-3. В корне создаем файл `.hermione.conf.js` и наполняем содержимым - https://www.npmjs.com/package/hermione/v/5.6.2#webdriver-protocol
-4. В `package.json` прописываем 
+# Общее
+В начале ставим node.js 16 версии, так как на версиях выше не работает hermione версии 5.6.2
+```
+npm install -g n
+sudo n 16.20.0
+```
+
+
+1. Инициализируем проект `npm init hermione-app` - уже сделано
+2. Делаем npm install всех пакетов  - делаем
+3. Устанавливаем гермиону `npm install hermione` - 5.6.2 версии - уже сделано
+4. В корне создаем файл `.hermione.conf.js` и наполняем содержимым - https://www.npmjs.com/package/hermione/v/5.6.2#webdriver-protocol - уже сделано
+5. В `package.json` прописываем
 `"scripts": {
    "test": "hermione",
    "test:chrome": "hermione --browser chrome",
    }`
 
+   
+6. Устанавливаем selenium-standalone `npm i -g selenium-standalone`
+7. Устанавливаем драйвера браузера `selenium-standalone install`
+8. Запустить сервер `selenium-standalone start`
 
-
-5. Устанавливаем selenium-standalone `npm i -g selenium-standalone`
-6. Устанавливаем драйвера браузера `selenium-standalone install`
-7. Запустить сервер `selenium-standalone start`
-
-8. прогоняем тесты `npm test` или `npm run test:chrome`
-9. Прогон тестов с дебагом TUS - `DEBUG=si:tokenator* npm test`
+9. прогоняем тесты `npm test` или `npm run test:mobile`
+10. Прогон тестов с дебагом TUS - `DEBUG=si:tokenator* npm test`
 
 
 WevDriver io v7 - https://v7.webdriver.io/docs/gettingstarted - 7.30.2 \
 Hermione - https://github.com/gemini-testing/hermione \
 Hermione internal doc - https://wiki.yandex-team.ru/search-interfaces/testing/hermione/
+
+
 
 # TUS
 1. Устанавливаем библиотеку `npm install @yandex-int/hermione-auth-commands --registry=http://npm.yandex-team.ru` - https://gitlab.yandex-team.ru/search-interfaces/infratest/tree/master/packages/hermione-auth-commands#authlogin--prefix--loginprefix-phone--true-multi--false-
@@ -44,26 +54,45 @@ Hermione internal doc - https://wiki.yandex-team.ru/search-interfaces/testing/he
 
 
 
+# Отчеты
+1. Установить html-reporter `npm install html-reporter`
+2. Добавить в плагины
+```
+'html-reporter/hermione': {
+   // Options for the HTML reporter plugin
+   enabled: true,
+   path: 'hermione-html-report'
+}
+```
+3. После прогона нужно открыть отчет - `npx hermione gui`
+
+
+
 
 # Шаблон для тестов
 ```
-describe('github', async function() {
-   it('should find hermione', async function() {
-      const bro = this.browser;
-      await bro.url('https://github.com/gemini-testing/hermione');
-      const title = await bro.$('#readme h1').getText();
+describe('github', async () => {
+   it('should find hermione', async ({browser}) => {
+      await browser.url('https://github.com/gemini-testing/hermione');
+      const title = await browser.$('#readme h1').getText();
       await expect(title).toEqual('Hermione');
     });
 });
 ```
 
-1. Используем async function(), что бы можно было обрабатывать промисы через await, а не через вложенность\
-   А так же что бы получить доступ к браузеру через this.browser, если бы использовали стрелочную функцию, то не смогли бы, так как у стрелочных функций нет this 
-2. Присваиваем `const bro = this.browser`, что бы потом обращаться только к bro, а не к целой конструкции
-
 # Структура
 1. commands - хранятся самописные команды. Что бы их заэкспорить, то в начале пишем module.exports = {функции}. Используем их в page_objects
 2. page_objects - хранятся локаторы и функции специальные для каждой страницы. Делаем вложенность, под каждую группу свои локатору и там же функции
 3. suites - тесты. В них импортируем только определенный page_object
+
+
+# Прогон через CDP или webdriver
+Прогоняем тесты через webdriver - тесты идут на surfwax. Мокать запросы будет на все тесты.\
+Прогонять тесты через CDP можно только локально, там есть подмена конкретных ручек
+
+
+# Запуск тестов
+`npm run test:mobile` - запуск мобилки
+
 
 

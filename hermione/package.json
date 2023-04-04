@@ -2,21 +2,21 @@
   "name": "hermione",
   "version": "1.0.0",
   "description": "",
-  "main": ".hermione.conf.js",
-  "directories": {
-    "test": "src/suites"
-  },
+  "main": "index.js",
   "scripts": {
     "test": "hermione",
-    "test:chrome": "hermione --browser chrome",
+    "test:mobile": "hermione --set mobile",
     "selenium": "selenium-standalone start"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "devDependencies": {
+    "hermione": "5.6.2",
+    "html-reporter": "9.8.0"
+  },
   "dependencies": {
     "@yandex-int/hermione-auth-commands": "^1.2.17",
-    "@yandex-int/tus-cli": "^0.6.23",
-    "hermione": "5.6.2"
+    "@yandex-int/tus-cli": "^0.6.23"
   }
 }
