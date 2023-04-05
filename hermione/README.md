@@ -37,7 +37,7 @@ Hermione internal doc - https://wiki.yandex-team.ru/search-interfaces/testing/he
 ```
 '@yandex-int/hermione-auth-commands': {
    enabled: true, // Включить плагин
-   tus_consumer: 'txf-turboapp-taxi', // Консьюмер для проекта в TUS
+   tus_consumer: 'tap-team', // Консьюмер для проекта в TUS
    env: 'test', // Окружение Паспорта
    loginPrefix: 'yandex-team-', // Префикс, автоматически добавляемый перед логином, при вызове команды auth, authAny
    groupSize: 1, // Количество аккаунтов в группе, используется при вызовах команды authAny
@@ -79,6 +79,8 @@ describe('github', async () => {
     });
 });
 ```
+1. Если нужно именно кликнуть на элемент, то делаем проверку elem.isClickable(), а не elem.isDisplayed()
+
 
 # Структура
 1. commands - хранятся самописные команды. Что бы их заэкспорить, то в начале пишем module.exports = {функции}. Используем их в page_objects
