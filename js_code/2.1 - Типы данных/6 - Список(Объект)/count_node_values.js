@@ -11,14 +11,14 @@ const tree = {
     },],
 };
 // Using recursion
-function sumAllValues(tree) {
+function sumAllValues(tree, valueToCount) {
     let sum = 0;
-    Object.values(tree).forEach(el => {
-        if (typeof el === 'number') {
-            sum += el
+    Object.keys(tree).forEach(key => {
+        if (typeof tree[key] === 'number' && key === valueToCount) {
+            sum += tree[key]
         }
-        if (typeof el === 'object') {
-            sum += sumAllValues(el)
+        if (typeof tree[key] === 'object') {
+            sum += sumAllValues(tree[key], valueToCount)
         }
     })
     return sum
@@ -47,7 +47,7 @@ function getTreeValues(tree) {
 
 console.time('Measure recursion')
 for (let i = 0; i < 10000; i++) {
-    sumAllValues(tree)
+    sumAllValues(tree, 'value')
 }
 console.timeEnd('Measure recursion')
 
@@ -56,3 +56,5 @@ for (let i = 0; i < 10000; i++) {
     getTreeValues(tree)
 }
 console.timeEnd('Measure stack')
+
+

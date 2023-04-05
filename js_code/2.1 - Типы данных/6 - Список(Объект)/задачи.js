@@ -56,7 +56,7 @@ const findHappyNumber = num => {
     })
 
     Object.entries(resultObject).forEach(([key, value]) => {
-        if (key == value) resultArray.push(key);                // Используем ==, так как ключ это строка, а значение это число и их нужно привести к одному типу
+        if (key === String(value)) resultArray.push(key);
     })
     return resultArray;
 }
