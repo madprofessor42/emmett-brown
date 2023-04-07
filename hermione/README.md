@@ -5,6 +5,8 @@ npm install -g n
 sudo n 16.20.0
 ```
 
+Вместо нижних шагов можно установить tap-hermione-config, где уже будут подтянуты все зависимости `npm install @yandex-int/tap-hermione-config --registry=http://npm.yandex-team.ru`
+
 
 1. Инициализируем проект `npm init hermione-app` - уже сделано
 2. Делаем npm install всех пакетов  - делаем

@@ -1,17 +1,21 @@
+const path = require('path')
+
 module.exports = {
     gridUrl: 'http://localhost:4444/wd/hub',
     baseUrl: 'http://localhost',
     pageLoadTimeout: 0,
     httpTimeout: 60000,
     testTimeout: 90000,
-    resetCursor: false,
+    resetCursor: true,
+    screenshotsDir: test => path.join(path.dirname(test.file), 'screens', test.id(), test.browserId),
+
     sets: {
         desktop: {
             files: [
                 'suits/desktop/*'
             ],
             browsers: [
-                'chromeDesktop'
+                'chrome-desktop'
             ]
         },
         mobile: {
@@ -19,18 +23,18 @@ module.exports = {
                 'suits/mobile/*'
             ],
             browsers: [
-                'chromeMobile'
+                'chrome-mobile'
             ]
         }
     },
     browsers: {
-        chromeDesktop: {
+        "chrome-desktop": {
             automationProtocol: 'webdriver',
             desiredCapabilities: {
                 browserName: 'chrome'
             }
         },
-        chromeMobile: {
+        "chrome-mobile": {
             testsPerSession: 15,                     // сколько тестов будет прогоняться в 1 браузере. По дефолту бесконечность
             sessionsPerBrowser: 1,                   // сколько тестов будет прогоняться одновременно (если поставить 5, то будет открыто 5 браузеров)
             automationProtocol: 'webdriver',
@@ -41,10 +45,17 @@ module.exports = {
                     mobileEmulation: {
                         deviceMetrics: {width: 390, height: 844, pixelRatio: 3.0},
                         userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1'
+                    },
+                    prefs: {
+                        profile: {
+                            default_content_setting_values: {
+                                geolocation: 1
+                            }
+                        }
                     }
                 }
             }
-        }
+        },
     },
     plugins: {
         'html-reporter/hermione': {
@@ -56,7 +67,8 @@ module.exports = {
         },
         '@yandex-int/hermione-auth-commands': {
             enabled: true, // Включить плагин
-            tus_consumer: 'tap-team', // Консьюмер для проекта в TUS txf-turboapp-taxi
+            tus_consumer: 'tap-team', // Консьюмер для проекта в TUS
+//            tus_consumer: 'txf-turboapp-taxi',
             env: 'test', // Окружение Паспорта
             loginPrefix: 'yandex-team-', // Префикс, автоматически добавляемый перед логином, при вызове команды auth, authAny
             groupSize: 1, // Количество аккаунтов в группе, используется при вызовах команды authAny

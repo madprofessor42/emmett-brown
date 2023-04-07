@@ -6,7 +6,15 @@
   "scripts": {
     "test": "hermione",
     "test:mobile": "hermione --set mobile",
-    "selenium": "selenium-standalone start"
+    "test:updateScreenshots": "hermione --update-refs",
+    "test:onlyTest": "hermione suits/mobile/test.js",
+    "selenium": "selenium-standalone start",
+    "ci:hermione": "npm run build && npm run hermione",
+    "build": "...",
+    "hermione": "hermione --config ./.config/hermione/hermione.conf.js --retry 3",
+    "hermione:gui": "npm run hermione -- gui",
+    "hermione:gui:debug": "npm run hermione:gui -- --debug --debug-vnc-before-test 1 --debug-no-timeouts 1",
+    "hermione:local:debug": "HERMIONE_LOCAL_DEBUG=1 hermione --inspect --config .config/hermione/hermione.conf.js -b chrome-grid-360"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +25,10 @@
   },
   "dependencies": {
     "@yandex-int/hermione-auth-commands": "^1.2.17",
-    "@yandex-int/tus-cli": "^0.6.23"
+    "@yandex-int/tap-hermione-config": "^0.8.19",
+    "@yandex-int/tus-cli": "^0.6.23",
+    "compression": "^1.7.4",
+    "express": "^4.18.2",
+    "http-proxy-middleware": "^2.0.6"
   }
 }
