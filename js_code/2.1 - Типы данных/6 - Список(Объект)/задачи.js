@@ -62,3 +62,32 @@ const findHappyNumber = num => {
 }
 
 console.log(findHappyNumber(num));
+
+/**
+ * Перевести число в римское
+ */
+// 1990 - MCMXC (1000 - M ; 900 - CM ; 90 - XC)
+// Бежимся по объекту, и если ключ в объекте меньше или равен числу, то записываем букву этого числа и уменьшаем введенное число на величину числа из объекта
+
+const solution = (number) => {
+    // convert the number to a roman numeral
+    const ROMAN = {M: 1000, CM: 900, D: 500, CD: 400, C: 100, XC: 90, L: 50, XL: 40, X: 10, IX: 9, V: 5, IV: 4, I: 1}
+
+    let ans = '';
+    while (number > 0) {
+        for (year in ROMAN) {
+            if (ROMAN[year] <= number) {
+                ans += year;
+                number -= ROMAN[year];
+                break;
+            }
+        }
+    }
+    return ans;
+}
+
+
+console.log(solution(1690))
+
+
+

@@ -29,3 +29,13 @@ function getMaxSum(arr){
 }
 
 console.log(getMaxSum([1,2,3, -3, 10]))
+
+
+/**
+ *  Дробим число на тысячи, сотки, десятки, единицы
+ */
+const num = 1990
+const subResult = num.toString().split('').map((elem, index, array) => {
+    return elem * Math.pow(10, array.length - index - 1);
+});
+console.log(subResult)              // [ 1000, 900, 90, 0 ]
