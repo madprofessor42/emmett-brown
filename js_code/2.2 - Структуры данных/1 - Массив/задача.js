@@ -47,4 +47,41 @@ console.log(sortOdd(arr))
 let nLastElements = [1,2,3,4,5];
 console.log(nLastElements.splice(nLastElements.length - 3))
 
+/**
+ * Убрать из iterable повторяющиеся значения с сохранением их порядка
+ */
+const uniqueInOrder = (iter) => {
+    let subArr = [];
+    for (let i=0; i<iter.length;i++) {
+        if (iter[i+1] !== iter[i]) {
+            subArr.push(iter[i])
+        }
+    }
+    return subArr
+}
+console.log(uniqueInOrder("AAAABBBCCDAABBB")) // [ 'A', 'B', 'C', 'D', 'A', 'B' ]
 
+
+/**
+ * Посчитать кол-во гласных букв в слове
+ */
+const getCount = (str) => {
+    const VOWELS = ['a', 'e', 'i', 'o', 'u'];
+
+    return str.length - str.split("").filter(char => !VOWELS.includes(char)).length
+}
+console.log(getCount('qwerty'))                // 1
+
+
+/**
+ * Найти сколько раз составное число можно перемножить на числа этого числа. например 39 -> 3*9 = 27 -> 2*7 = 14 -> 1*4 = 4 (3 раза)
+ */
+const persistence = (num) => {
+    let i = 0;
+    for (i; num > 9; i++) {
+        num = num.toString().split('').reduce((t, c) => c * t);
+    }
+    return i;
+}
+
+console.log(persistence(999))           // 4
