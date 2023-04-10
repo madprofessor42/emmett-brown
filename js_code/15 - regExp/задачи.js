@@ -2,7 +2,7 @@
 // На вход подается строка. Поставить первую букву в конец, а в конце добавить "ay". Знаки пунктуации ("." "," "!" "?" и тд) не трогаем
 // Hello World ! -> elloHay orldWay !
 const pigIt = (str) => {
-    return str.replace(/(\w)(\w*)(\s|$)/g, "\$2\$1ay\$3")
+    return str.replace(/(\w)(\w*)(\s|$)/g, "$2$1ay$3")
 }
 
 console.log(pigIt('Hello World !'))
@@ -19,5 +19,8 @@ console.log(pigIt('Hello World !'))
  *   - `ay`: The suffix added to the end of the word.
  *   - `$3`: The third group of the pattern, which matches either the whitespace character or end of line after the word.
  */
+
+console.log('Hello World !'.replace(/(\w)(\w*)(\s|$)/g, '$2$1ay$3'))
+
 
 
