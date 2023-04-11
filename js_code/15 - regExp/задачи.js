@@ -20,7 +20,13 @@ console.log(pigIt('Hello World !'))
  *   - `$3`: The third group of the pattern, which matches either the whitespace character or end of line after the word.
  */
 
-console.log('Hello World !'.replace(/(\w)(\w*)(\s|$)/g, '$2$1ay$3'))
 
+/**
+ * return the total number of smiling faces in the array
+ */
+const countSmileys = (arr) => {
+    return arr.filter(x => /^[:;][-~]{0,1}[)D]$/.test(x)).length;
+}
 
+console.log(countSmileys([':)', ';(', ';}', ':-D']))
 
