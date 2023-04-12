@@ -40,7 +40,7 @@ let nestedObject = {
         width: 50
     }
 };
-// structuredClone()
+// structuredClone() - доступно только с node 17 версии
 const newObj = structuredClone(nestedObject);
 newObj.name = 'Mike';
 console.log(nestedObject.name);             // John

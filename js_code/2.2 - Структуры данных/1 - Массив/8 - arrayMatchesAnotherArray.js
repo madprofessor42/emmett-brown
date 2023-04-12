@@ -39,6 +39,14 @@ const intersection_5 = (a, b) => {
     return a.every(el => b.includes(el))
 }
 
+function intersection_6(a, b) {
+    let occurrences = a.reduce((arr, cur) => {
+        arr[cur] ? arr[cur]++ : arr[cur] = 1;
+        return arr;
+    }, {});
+    return b.every((character) => --occurrences[character] >= 0);
+}
+
 /* array.includes(value) - проверить что значение есть в массиве */
 const sub = 'dsqq'
 console.log([';', '123', 'dsq'].includes(sub))      // false
@@ -81,3 +89,8 @@ for (let i = 0; i < 100000; i++){
 }
 console.timeEnd('Check intersection using every')
 
+console.time('Check intersection using object filtration')
+for (let i = 0; i < 100000; i++){
+    intersection_6(firstArray, secondArray)
+}
+console.timeEnd('Check intersection using object filtration')
