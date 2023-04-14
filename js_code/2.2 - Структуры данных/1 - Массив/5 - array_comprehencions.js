@@ -10,3 +10,12 @@ let key = '-';
 let transformedString = [...searchedString].filter(e => !key.includes(e)).map(e => parseInt(e)+2).join('')
 console.log(transformedString)                  // 34567
 
+
+
+const generateRandomColor = () => {
+    return Array.from({length: 3}, () => Math.floor(Math.random() * 255));
+}
+
+console.log(generateRandomColor());
+
+
