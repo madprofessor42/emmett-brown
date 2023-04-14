@@ -1,20 +1,5 @@
 const some_string = 'What is my favorite band?'
 
-// Написать функцию которая подсчитывает кол-во букв
-let numberOfLetters = (string) => {
-    let objectOfLetters = {};
-    for (let char of string){
-        if (char in objectOfLetters){           // если буква уже добавлена, то прибавить 1
-            objectOfLetters[char] += 1
-        }
-        else{                                   // если буква еще не добавлена, то добавить букву и указать первое вхождение
-            objectOfLetters[char] = 1
-        }
-    }
-    return objectOfLetters
-}
-console.log(numberOfLetters(some_string))
-
 
 // Убрать дубликаты из массива
 let duplicatedArray = [1,2,3,3,3,4,5,5]

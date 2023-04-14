@@ -159,6 +159,7 @@ console.log(array_for_reduce.reduce((total, current) => total + current))       
 console.log(array_for_reduce.reduce((total, current) => total + current, 5))    // 20
 
 
+
 // array.forEach(callbackFn) // array.forEach((item, index, array) => {}) - по сути цикл for
 let array_for_forEach = ['a', 'b', 'c'];
 array_for_forEach.forEach((item, index, array) => console.log(`item is ${item} index is ${index} array is ${array}`));  // item is a index is 0 array is a,b,c
