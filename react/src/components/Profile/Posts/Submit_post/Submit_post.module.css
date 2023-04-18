@@ -41,9 +41,14 @@ input, button {
     border-radius: 1rem;
     font-size: 1.25rem;
     margin-left: 5px;
-
+    display: flex;
 }
 
+.submit_post button {
+    padding: 10px;
+    cursor: pointer;
+
+}
 
 
 

@@ -3,22 +3,34 @@
     flex-direction: column;
     background-color: brown;
     margin: 5px;
-    width: 500px;
 }
 
 .item {
     display: flex;
     padding: 10px;
+    align-items: center;
 
 }
 
 .image {
     height: 50px;
-    width: 50px;
+    width: 75px;
     border-radius: 30px;
+    background-color: blue;
+    display: flex;
+    align-items: center;
+}
+.image span {
+    margin-left: 20%;
+    color: white;
 }
 
 .text {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 20px;
+}
+.text span {
     color: white;
 }
 

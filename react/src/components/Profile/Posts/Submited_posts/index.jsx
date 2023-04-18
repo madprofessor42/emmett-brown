@@ -5,10 +5,10 @@ const Submited_posts = () => {
         <div className={styles.postFeed}>
             <div className={styles.item}>
                 <div className={styles.image}>
-                    Some image
+                    <span>Some Image</span>
                 </div>
                 <div className={styles.text}>
-                    Submitted post
+                    <span>Submitted PdsasPdsasasasaostPdsasasasaostPdsasasasaostPdsasasasaostPdsasasasaostPdsasasasaostPdsasasasaostPdsasasasaostPdsasasasaostPdsasasasaostPdsasasasaostvasasaost</span>
                 </div>
             </div>
             <div className={styles.actions}>
@@ -16,6 +16,7 @@ const Submited_posts = () => {
                 <span>dislike</span>
             </div>
         </div>
+
     )
 }
 
