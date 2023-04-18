@@ -30,3 +30,14 @@ const countSmileys = (arr) => {
 
 console.log(countSmileys([':)', ';(', ';}', ':-D']))
 
+
+/**
+ * Delete all ending 0's
+ */
+
+const noBoringZeros = (n) => {
+    return n.toString().split("").join("").replace(/0+$/g, "");
+}
+
+console.log(noBoringZeros(10500))                   // 105
+
