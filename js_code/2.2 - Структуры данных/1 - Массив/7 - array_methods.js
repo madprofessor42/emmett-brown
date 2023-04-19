@@ -81,6 +81,12 @@ let array_for_some = [1, 4, 6, 9];
 console.log('array_for_some - ' + array_for_some.some(el => el > 10));  // false
 console.log('array_for_some - ' + array_for_some.some(el => el < 10));  // true
 
+// array.every(callbackFn) - если все элементы в массиве удовлетворили переданному колбэку
+let array_for_every = [1, 6, 1, 2, 4];
+console.log('array_for_every - ' + array_for_every.every(el => [1,2].includes(el)))     // false
+console.log('array_for_every - ' + array_for_every.every(el => [1,2,4,6].includes(el))) // true
+
+
 
 /*ОЧЕРЕДЬ - push(), shift()*/ // Добавляем элемент в конец и забираем с начала
 /*СТЕК - push(), pop()*/ // Добавляем элемент в конец и забираем с конца
