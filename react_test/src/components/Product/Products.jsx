@@ -11,7 +11,6 @@ const Products = (props) => {
         setDescriptionVisible(!descriptionVisible)
     }
 
-    const
 
     // Если описание не видно - descriptionVisible = false, то отображаем Show Description, в другом случае Hide Description
     // Так же если есть описание, то отрисовываем тэг <p> где содержится описание

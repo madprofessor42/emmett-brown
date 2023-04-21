@@ -1,12 +1,20 @@
 import './App.css';
-import Products from "./components/Products";
+import {Route, Routes, Link} from 'react-router-dom'
+
+import Products from "./components/Product/Products";
 import {products} from './data/products'
+
+import UseEffect from './components/UseEffectTutorial/UseEffect'
+
+
+
+
 
 const App = () => {
     return (
-        <div className='app-wrapper'>
-            <Products product={products[0]}/>
-            <Products product={products[1]}/>
+        <div className="app-wrapper">
+            <UseEffect/>
+
         </div>
     )
 }
