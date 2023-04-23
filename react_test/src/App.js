@@ -1,20 +1,14 @@
 import './App.css';
 import {Route, Routes, Link} from 'react-router-dom'
 
-import Products from "./components/Product/Products";
-import {products} from './data/products'
-
-import UseEffect from './components/UseEffectTutorial/UseEffect'
-
-
+import {ProductsPage} from "./pages/ProductsPage";
 
 
 
 const App = () => {
     return (
         <div className="app-wrapper">
-            <UseEffect/>
-
+            <ProductsPage/>
         </div>
     )
 }

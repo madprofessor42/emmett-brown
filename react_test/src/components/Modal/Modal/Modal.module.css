@@ -1,0 +1,35 @@
+.background {
+    position: relative;
+}
+
+.background::before {
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* dimming color with 60% opacity */
+    z-index: 1;
+}
+
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+    width: 350px;
+    background-color: white;
+    border-radius: 15px;
+    z-index: 2;
+
+}
+
+.title {
+    text-align: center;
+    font-size: 25px;
+
+}

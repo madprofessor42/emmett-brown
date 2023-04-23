@@ -1,31 +1,29 @@
 import styles from './Products.module.css'
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 
-const Products = (props) => {
+const Products = ({product}) => {
 
-    // Задаем состояние для кнопки скрыть, показать описание
-    const [descriptionVisible, setDescriptionVisible] = useState(false);
-    // При вызове функции будет менять состояния на обратное
-    const changeVisibility = () => {
-        setDescriptionVisible(!descriptionVisible)
-    }
+    // Компонента должна хранить только свой шаблон. Показываться они будут через map() в pages > ProductsPage
+    // Не задаем контейнер элементов, так как в таком случае он продублируется для каждого элемента. Контейнер задаем в pages > ProductPage
+    const [details, setDetails] = useState(false);
 
-
-    // Если описание не видно - descriptionVisible = false, то отображаем Show Description, в другом случае Hide Description
-    // Так же если есть описание, то отрисовываем тэг <p> где содержится описание
     return (
-        <div className={styles.container}>
+        <>
             <div className={styles.item}>
-                <img className={styles.image} src={props.product.image} alt={props.product.title}/>
-                <p className={styles.title}>{props.product.title}</p>
-                <span className={styles.price}>{props.product.price}</span>
-                <button className={styles.descriptionButton} onClick={changeVisibility}>
-                    {descriptionVisible ? 'Hide Description': 'Show Description'}
+                <img className={styles.image} src={product.image} alt={product.title}/>
+                <p className={styles.title}>{product.title}</p>
+                <span className={styles.price}>{product.price + " $"}</span>
+                <button
+                    className={styles.descriptionButton}
+                    onClick={() => setDetails(prev => !prev)}
+                >
+                    {details ? 'Hide Description' : 'Show Description'}
                 </button>
-                {descriptionVisible &&  <p className={styles.description}>{props.product.description}</p>}
+                {details &&
+                    <p className={styles.description}>{product.description}</p>}
             </div>
-        </div>
+        </>
     )
 }
 
