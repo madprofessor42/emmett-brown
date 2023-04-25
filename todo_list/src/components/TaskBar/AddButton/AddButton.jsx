@@ -1,11 +1,11 @@
 import styles from './AddButton.module.css'
 
-const AddButton = () => {
 
+const AddButton = ({handleAddTask}) => {
 
     return (
         <div>
-            <button className={styles.addButton}>Add</button>
+            <button className={styles.addButton} onClick={handleAddTask}>Add</button>
         </div>
     )
 

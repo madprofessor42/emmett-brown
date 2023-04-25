@@ -1,6 +1,12 @@
+import styles from "./TaskText.module.css"
 
+const TaskText = ({task}) => {
 
-const TaskText = () => {
+    return (
+        <div>
+            <span>{task}</span>
+        </div>
+    )
 
 }
 

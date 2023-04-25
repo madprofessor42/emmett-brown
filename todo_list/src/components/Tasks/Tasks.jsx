@@ -2,10 +2,11 @@ import styles from "./Tasks.module.css"
 import TaskText from "./TaskText/TaskText";
 import DeleteButton from "./DeleteButton/DeleteButton";
 
-const Tasks = () => {
+const Tasks = ({task}) => {
+
     return (
-        <div>
-            <TaskText/>
+        <div className={styles.container}>
+            <TaskText task={task}/>
             <DeleteButton/>
         </div>
     )
