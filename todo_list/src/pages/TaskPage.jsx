@@ -1,7 +1,7 @@
 import styles from './TaskPage.module.css'
 import TaskBar from "../components/TaskBar/TaskBar";
 import Tasks from "../components/Tasks/Tasks";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 
 const TaskPage = () => {
@@ -13,11 +13,41 @@ const TaskPage = () => {
 
 
     const [text, setText] = useState("");
-    const [tasks, setTasks] = useState([]);
+    // Получаем таски из localStorage
+    const [tasks, setTasks] = useState(() => {
+        const savedTodos = localStorage.getItem("todos");
+        if (savedTodos) {
+            return JSON.parse(savedTodos)
+        } else {
+            return []
+        }
+    });
 
+    const [isEditing, setIsEditing] = useState(false);
+
+
+    // Добавляем таски в localStorage
+    // В зависимости передаем список тасков
+    useEffect(() => {
+        localStorage.setItem("todos", JSON.stringify(tasks))
+    }, [tasks]);
+
+    // При добавлении таски задаем ей уникальный id, с помощью которого потом будем отделать созданные таски между собой
+    // Теперь у нас есть массив с объектами. Что бы получить доступ к тексту tasks[0].text - текст первой таски. tasks[0].id - айдишник первой таски
     const handleAddTask = () => {
-        setTasks(prev => [...prev, text])
-        setText("");
+        if (text.trim().length !== 0) {
+            setTasks(prev => [...prev, {id: new Date(), text}])
+            setText("");
+        }
+    }
+
+    const handleDeleteTask = (taskID) => {
+        const updatedTasks = tasks.filter(task => task.id !== taskID)
+        setTasks(updatedTasks);
+    }
+
+    const handleEditTask = (taskID) => {
+
     }
 
 
@@ -31,7 +61,7 @@ const TaskPage = () => {
                 <div className={styles.tasksContainer}>
                     <TaskBar text={text} setText={setText} handleAddTask={handleAddTask}/>
                     <div className={styles.taskItemContainer}>
-                        {tasks.map(task => <Tasks task={task}/>)}
+                        {tasks.map(task => <Tasks task={task.text} key={task.id} handeDeleteTask={() => handleDeleteTask(task.id)}/>)}
                     </div>
 
                 </div>

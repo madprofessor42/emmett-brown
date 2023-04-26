@@ -3,7 +3,7 @@ import styles from "./TaskText.module.css"
 const TaskText = ({task}) => {
 
     return (
-        <div>
+        <div className={styles.textElement}>
             <span>{task}</span>
         </div>
     )

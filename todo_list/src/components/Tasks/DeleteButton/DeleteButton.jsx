@@ -1,10 +1,10 @@
 import styles from "./DeleteButton.module.css"
 
-const DeleteButton = () => {
+const DeleteButton = ({handleDeleteTask}) => {
 
     return (
         <div>
-            <button>Delete</button>
+            <button className={styles.deleteButton} onClick={handleDeleteTask}>Delete</button>
         </div>
     )
 }
