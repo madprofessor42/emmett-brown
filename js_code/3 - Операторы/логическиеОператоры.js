@@ -40,7 +40,7 @@ console.log(!'hello')          // false
 console.log(!!'hello')         // true - двойное НЕ позволяет получить булевой тип данных - по сути сейчас идет НЕ true = false, а после НЕ false = true (вернулся первый тип данных)
 
 
-// ?? - возвращает первое значение, которое не null или undefiner
+// ?? - возвращает первое значение, которое не null или undefined
 let height = 0;
 console.log(height || 100) // 100, так как 0 это false
 console.log(height ?? 100) // 0
