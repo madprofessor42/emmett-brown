@@ -52,6 +52,26 @@ d = 2
 e()                     // 2, так как значение переменной d на момент вызова функции равно 2
 
 
+const createCounterArrow = (n) => () => n++
+const counterArrow = createCounterArrow(10)
+console.log(counterArrow())
+console.log(counterArrow())
+console.log(counterArrow())
+
+function createCounter(n) {
+    let counter = n
+    return function(){
+        return counter++
+    }
+}
+
+const counter = createCounter(10)
+console.log(counter())
+console.log(counter())
+console.log(counter())
+
+
+
 
 function createIncrement() {
     let count = 0;
