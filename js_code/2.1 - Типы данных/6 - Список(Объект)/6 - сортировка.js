@@ -64,3 +64,24 @@ console.log(codesSorted)        /*
                                     }
                                 */
 
+
+/**
+ * Поменять местами Value для каждого ключа
+ */
+
+const obj = {
+    '1': 'Hello',
+    '2': 'My',
+    '3': 'Friend'
+}
+
+const transformedObj = {}
+let index = Object.keys(obj).length - 1
+for (let key in obj) {
+    transformedObj[key] = obj[Object.keys(obj)[index]];
+    index--
+}
+
+console.log(transformedObj) // { '1': 'Friend', '2': 'My', '3': 'Hello' }
+
+

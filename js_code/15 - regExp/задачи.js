@@ -36,8 +36,24 @@ console.log(countSmileys([':)', ';(', ';}', ':-D']))
  */
 
 const noBoringZeros = (n) => {
-    return n.toString().split("").join("").replace(/0+$/g, "");
+    return n.toString().replace(/0+$/g, "");
 }
 
 console.log(noBoringZeros(10500))                   // 105
+
+/**
+ * Разделить число. Например 1000000 превратить в 1.000.000
+ */
+
+const numberFormat = (num) => {
+    return num.toString().replace(/(\d)(?=(\d{3})+\b)/g, '$1,')
+}
+// - (\d) captures any digit and stores it in a capturing group.
+//
+// - (?=(\d{3})+\b) uses a positive lookahead assertion to match a pattern without capturing it. It checks if the current digit is followed by a group of three digits (\d{3}) at one or more times (+) until the end of a word boundary (\b). The word boundary check ensures that the regex will only match the last group of digits (i.e., it ensures that groups of 3 digits are not matched beyond the last one in the string).
+//
+// - /g makes sure the regex searches for all matches of the digit pattern throughout the string, rather than just the first match.
+
+console.log(numberFormat(-310063123)) // -310,063,123
+
 
